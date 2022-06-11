@@ -1,9 +1,32 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import Sidebar from "../components/Sidebar";
+import styles from "../styles/Home.module.css";
 
-export default function Home() {
+import { createClient } from "contentful";
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "topics" });
+
+  return {
+    props: {
+      topicsDetails: res.items,
+    },
+  };
+}
+
+export default function Home({ topicsDetails }) {
+  console.log(topicsDetails);
   return (
-    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint quo adipisci dolorum vitae vero incidunt nulla repellendus dignissimos, velit ullam laudantium numquam, accusantium illum exercitationem perspiciatis reprehenderit nisi quibusdam repellat.</div>
-  )
+    <div className="topic">
+      {topicsDetails.map((topics) => (
+        <div key={topics.sys.id}> {topics.fields.title}</div>
+      ))}
+    </div>
+  );
 }
