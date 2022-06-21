@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import LandingPage from '../components/landingPage'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
 
@@ -13,6 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Navbar/>
+    <LandingPage/>
+
     </div>
   )
 }

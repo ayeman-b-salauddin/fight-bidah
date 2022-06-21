@@ -37,7 +37,7 @@ function Navbar() {
                     <span className="material-symbols-outlined">
                         menu
                     </span>
-                    <p classNameName="ml-3">Click to see topics</p> 
+                    <p className="ml-3">Click to see topics</p> 
                   </button>
                 </div>
 
@@ -50,7 +50,7 @@ function Navbar() {
                   <div className=" mt-24 flex flex-col items-center justify-center w-full space-y-5">
                       {topics.map(topic =>(
                         <>
-                          <div className=" text-center text-white font-light text-3xl bg-slate-800 px-24 md:ml-5 ml-3 rounded-full py-1 ">topic</div>
+                          <div key={topic} className=" text-center text-white font-light text-3xl bg-slate-800 px-24 md:ml-5 ml-3 rounded-full py-1 ">topic</div>
                         </>
                       ))}
                   </div>
