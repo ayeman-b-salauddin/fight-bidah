@@ -9,6 +9,17 @@ function LandingPage() {
       accessToken: process.env.CONTENTFUL_ACCESS_KEY
     })
     const items =  client.getEntries()
+/////////////////////////////////////////////////////////////////////////////////////////////////
+            // Marzuk , add content type inside .getEntries & return the items as props
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // const res =  client.getEntries({ content_type: "topics" })
+    // return {
+    //   props: {
+    //     topicsDetails: res.items,
+    //   },
+    // };
+    
     console.log("items");
 
     console.log(items);
